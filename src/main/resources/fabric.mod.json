@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "badbone",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Bad to the Bone",
+  "description": "This mod was made for Spookyjam 2021.\ngetting old is spooky !\nhaving back and/or hip issues is scary too !\nPlease take care of your body !",
   "authors": [
-    "Me!"
+    "Subaraki",
+    "StrikerRocker"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/StrikerRockers-Mods/BadBoneFabric"
   },
-
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
+  "license": "GNU v3",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "subaraki.badbone.mod.BadBone"
+    ],
+    "client": [
+      "subaraki.badbone.mod.ClientInit"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "badbone.mixins.json"
   ],
 
   "depends": {
@@ -31,8 +32,5 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

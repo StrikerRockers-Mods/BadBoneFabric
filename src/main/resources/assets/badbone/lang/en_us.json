@@ -1,0 +1,12 @@
+{
+  "effect.badbone.hurt": "Back Pain",
+  "effect.badbone.knee": "Knee Pain",
+  "effect.badbone.arthritis": "Arthritis",
+  "effect.badbone.eye": "Bad Eyes",
+  "effect.badbone.chrono": "Chronophobia",
+
+  "advancements.badbone.eyesight.title": "Losing Sight is a Wolf",
+  "advancements.badbone.eyesight.description": "I'm going to need some glasses ... ",
+
+  "item.badbone.glasses": "Glasses"
+}

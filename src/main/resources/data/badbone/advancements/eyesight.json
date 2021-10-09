@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "badbone:glasses"
+    },
+    "title": {
+      "translate": "advancements.badbone.eyesight.title"
+    },
+    "description": {
+      "translate": "advancements.badbone.eyesight.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/cracked_deepslate_tiles.png"
+  },
+  "criteria": {
+    "eyesight": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "eyesight"
+    ]
+  ]
+}
