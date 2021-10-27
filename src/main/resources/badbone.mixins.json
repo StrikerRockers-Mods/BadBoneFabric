@@ -2,7 +2,6 @@
   "required": true,
   "package": "subaraki.badbone.mixin",
   "compatibilityLevel": "JAVA_16",
-  "refmap": "badbone.refmap.json",
   "mixins": [
     "MixinItemEntity", "MixinLivingEntity", "MixinPlayer", "MixinResultSlot"
   ],
