@@ -3,7 +3,7 @@ package subaraki.badbone.effects;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 
-public class EffectChronophobia extends MobEffect {
+public class EffectChronophobia extends MobEffect implements NotCurable {
     public EffectChronophobia() {
         super(MobEffectCategory.NEUTRAL, 0x423636);
     }

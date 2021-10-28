@@ -22,7 +22,7 @@ public class ClientEvent {
         }
     }
 
-    public static void event(){
+    public static void event() {
         HudRenderCallback.EVENT.register((matrixStack, tickDelta) -> {
             Player player = Minecraft.getInstance().player;
             if (player.hasEffect(BadBone.BLIND) && !(player.getInventory().getArmor(3).getItem() instanceof GlassesItem)) {

@@ -3,7 +3,7 @@ package subaraki.badbone.effects;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 
-public class EffectWeakKnees extends MobEffect {
+public class EffectWeakKnees extends MobEffect implements NotCurable {
     public EffectWeakKnees() {
         super(MobEffectCategory.NEUTRAL, 0x423636);
     }

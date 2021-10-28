@@ -10,8 +10,8 @@ import subaraki.badbone.events.PlayerHurtEvent;
 
 @Mixin(Player.class)
 public class MixinPlayer {
-    @Inject(method = "hurt",at = @At(value = "INVOKE",target = "Lnet/minecraft/world/entity/player/Player;isDeadOrDying()Z"))
-    public void event(DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir){
-        PlayerHurtEvent.EVENT.invoker().playerHurt((Player)(Object)this,damageSource,f);
+    @Inject(method = "hurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;isDeadOrDying()Z"))
+    public void event(DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+        PlayerHurtEvent.EVENT.invoker().playerHurt((Player) (Object) this, damageSource, f);
     }
 }
