@@ -21,6 +21,9 @@
     ],
     "client": [
       "subaraki.badbone.mod.ClientInit"
+    ],
+    "modmenu": [
+      "subaraki.badbone.mod.ModMenuIntegration"
     ]
   },
   "mixins": [

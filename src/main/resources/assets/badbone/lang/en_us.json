@@ -8,5 +8,11 @@
   "advancements.badbone.eyesight.title": "Losing Sight is a Wolf",
   "advancements.badbone.eyesight.description": "I'm going to need some glasses ... ",
 
-  "item.badbone.glasses": "Glasses"
+  "item.badbone.glasses": "Glasses",
+
+  "text.autoconfig.badbone.option.frequencyArthritis": "Frequency at which arthritis will occur when using items (values in ticks)",
+  "text.autoconfig.badbone.option.frequencyHurt": "frequency at which the inventory gets checked for back pain (values in ticks)",
+  "text.autoconfig.badbone.option.chanceHurt": "Chance to have back pain applied when inventory is too full",
+  "text.autoconfig.badbone.option.frequencyKnee": "Frequency at which your knees can go bad when falling (values in ticks)",
+  "text.autoconfig.badbone.option.frequencyEyes": "Frequency at which your eyes will go bad (values in ticks)"
 }
