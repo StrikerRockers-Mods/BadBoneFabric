@@ -13,7 +13,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1000)
     public static int chanceHurt = 10;
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1000)
-    public static int frequencyKnee = 1;
+    public static int frequencyKnee = 10;
     @ConfigEntry.BoundedDiscrete(min = 1, max = 24_000 * 30)
     public static int frequencyEyes = 24_000;
 }

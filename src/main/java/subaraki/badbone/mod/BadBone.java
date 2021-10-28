@@ -1,5 +1,7 @@
 package subaraki.badbone.mod;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +25,7 @@ public class BadBone implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);
         PlayerEvents.registerEvents();
     }
 }

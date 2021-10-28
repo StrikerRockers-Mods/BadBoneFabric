@@ -1,5 +1,6 @@
 package subaraki.badbone.events;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -14,6 +15,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import subaraki.badbone.mod.BadBone;
 import subaraki.badbone.mod.ModConfig;
 
@@ -29,17 +32,14 @@ public class PlayerEvents {
                 if (player instanceof ServerPlayer serverPlayer) {
                     if (!serverPlayer.hasEffect(BadBone.BACK_HURT)) {
                         if (serverPlayer.getRandom().nextInt(ModConfig.frequencyHurt) == 0 || serverPlayer.getStats().getValue(Stats.CUSTOM.get(Stats.TIME_SINCE_REST)) < 100) {
-                            int weight = 0;
-                            int quota = 0;
+                            float fullInv = 4 * 9 * 64; //four rows of 9 slots with 64 items in
+                            float totalCarrying = 0;
                             for (ItemStack stack : serverPlayer.getInventory().items) {
-                                if (!stack.isEmpty()) {
-                                    quota += stack.getMaxStackSize();
-                                    weight += stack.getMaxStackSize() - stack.getCount();
-                                }
+                                totalCarrying += stack.isEmpty() ? 0f : 64f * ((float) stack.getCount() / (float) stack.getMaxStackSize());
                             }
                             //the closer to 0 weight is, the more the player carries
                             //if the weight is taking up 2/3-ish from the inventory, then you can start having back pain
-                            if (weight < quota * 0.35f) {
+                            if (totalCarrying > fullInv * 0.65f) {
                                 if (serverPlayer.getRandom().nextInt(ModConfig.chanceHurt) == 0) {
                                     serverPlayer.addEffect(new MobEffectInstance(BadBone.BACK_HURT, serverPlayer.getRandom().nextInt(20 * 60 * 2) + 20 * 15, 0, false, false, true));
                                     playHurtSound(serverPlayer);
@@ -78,6 +78,20 @@ public class PlayerEvents {
                         if (serverPlayer.getAttribute(Attributes.MOVEMENT_SPEED).hasModifier(MobEffects.MOVEMENT_SLOWDOWN.getAttributeModifiers().get(Attributes.MOVEMENT_SPEED)))
                             serverPlayer.getAttribute(Attributes.MOVEMENT_SPEED).removeModifier(MobEffects.MOVEMENT_SLOWDOWN.getAttributeModifiers().get(Attributes.MOVEMENT_SPEED));
 
+                    }
+
+                    BlockPos bubble = serverPlayer.blockPosition();
+                    BlockPos magma = serverPlayer.getOnPos();
+                    Level level = serverPlayer.level;
+                    if (level.getBlockState(bubble).is(Blocks.BUBBLE_COLUMN) && level.getBlockState(magma).is(Blocks.MAGMA_BLOCK)) {
+                        if (serverPlayer.hasEffect(BadBone.ARTHRITIS))
+                            serverPlayer.removeEffect(BadBone.ARTHRITIS);
+                        if (serverPlayer.hasEffect(BadBone.BACK_HURT))
+                            serverPlayer.removeEffect(BadBone.BACK_HURT);
+                        if (serverPlayer.hasEffect(BadBone.KNEE_HURT))
+                            serverPlayer.removeEffect(BadBone.KNEE_HURT);
+                        if (serverPlayer.hasEffect(BadBone.CHRONO))
+                            serverPlayer.removeEffect(BadBone.CHRONO);
                     }
                 }
             }
