@@ -20,7 +20,7 @@ import subaraki.badbone.mod.ModConfig;
 public class PlayerEvents {
     public static final ResourceLocation ADVANCEMENT = new ResourceLocation(BadBone.MODID, "eyesight");
 
-    public static void registerEvents(){
+    public static void registerEvents() {
         LivingEntityTickCallback.EVENT.register(livingEntity -> {
             if (livingEntity instanceof Player player) {
                 if (player.level.isClientSide()) {

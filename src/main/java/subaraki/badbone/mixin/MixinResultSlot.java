@@ -13,10 +13,12 @@ import subaraki.badbone.events.ItemCraftedEvent;
 
 @Mixin(ResultSlot.class)
 public class MixinResultSlot {
-    @Shadow @Final private Player player;
+    @Shadow
+    @Final
+    private Player player;
 
-    @Inject(method = "checkTakeAchievements",at=@At(value = "INVOKE" ,target = "Lnet/minecraft/world/item/ItemStack;onCraftedBy(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;I)V"))
-    public void craftingEvent(ItemStack itemStack, CallbackInfo ci){
-        ItemCraftedEvent.EVENT.invoker().itemCrafted(this.player,itemStack);
+    @Inject(method = "checkTakeAchievements", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;onCraftedBy(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;I)V"))
+    public void craftingEvent(ItemStack itemStack, CallbackInfo ci) {
+        ItemCraftedEvent.EVENT.invoker().itemCrafted(this.player, itemStack);
     }
 }

@@ -3,15 +3,16 @@
   "package": "subaraki.badbone.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-
+    "AccessorLivingEntity",
     "MixinItemEntity",
     "MixinLivingEntity",
+    "MixinMilkBucket",
     "MixinPlayer",
     "MixinResultSlot"
   ],
   "client": [
-    "MixinGameRenderer$EffectField",
     "MixinGameRenderer",
+    "MixinGameRenderer$EffectField",
     "NauseaGameRendererMixin",
     "NauseaGuiMixin",
     "NauseaPlayerMixin"
