@@ -10,8 +10,6 @@ import subaraki.badbone.items.GlassesItem;
 import subaraki.badbone.mod.BadBone;
 
 public class ClientEvent {
-    private static final String SHADER_NAME = "badbone:shaders/post/blur.json";
-    public static final ResourceLocation SHADER = new ResourceLocation(SHADER_NAME);
 
     public static void clientPlayerUpdate(Player player) {
         if (player instanceof LocalPlayer localPlayer) {
@@ -20,21 +18,5 @@ public class ClientEvent {
                 localPlayer.setShiftKeyDown(true);
             }
         }
-    }
-
-    public static void event() {
-        HudRenderCallback.EVENT.register((matrixStack, tickDelta) -> {
-            Player player = Minecraft.getInstance().player;
-            if (player.hasEffect(BadBone.BLIND) && !(player.getInventory().getArmor(3).getItem() instanceof GlassesItem)) {
-                PostChain shader = Minecraft.getInstance().gameRenderer.currentEffect();
-                if (shader == null || !shader.getName().equals(SHADER_NAME)) {
-                    Minecraft.getInstance().gameRenderer.loadEffect(SHADER);
-                }
-            } else {
-                PostChain shader = Minecraft.getInstance().gameRenderer.currentEffect();
-                if (shader != null && shader.getName().equals(SHADER_NAME))
-                    Minecraft.getInstance().gameRenderer.shutdownEffect();
-            }
-        });
     }
 }
