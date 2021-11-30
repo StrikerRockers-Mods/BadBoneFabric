@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "badbone",
   "version": "${version}",
-
   "name": "Bad to the Bone",
   "description": "This mod was made for Spookyjam 2021.\ngetting old is spooky !\nhaving back and/or hip issues is scary too !\nPlease take care of your body !",
   "authors": [
@@ -31,9 +30,11 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.12.0",
     "fabric": "*",
-    "java": ">=16"
+    "java": ">=17",
+    "cloth-config2": ">=6.0.42",
+    "minecraft": "1.18.x"
   },
   "accessWidener": "badbone.accesswidener"
 }
